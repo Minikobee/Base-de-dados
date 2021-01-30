@@ -1,0 +1,68 @@
+table PRATO
+(
+  _ IdPra _,
+  Nome,
+  Preco
+)
+
+
+table INGREDIENTE
+(
+  _ IdP_ --> PRATO.IdPra,
+  _ Ingredientes _
+)
+
+
+table CLIENTE
+(
+  _ IdCli _, 
+  Nome,
+  Localidade ?,
+  CRefeicao -->PRATO.IdPra,
+  Restaurante --> RESTAURANTE.IdRes
+)
+
+table EMP_CLI
+(
+  _ IdCli _ --> CLIENTE.IdCli,
+  _Cliente_  
+)
+
+table NUM_TEL
+(
+  _ IdCli _ --> CLIENTE.IdCli,
+  _ Telemovel _
+)
+
+table EMPREGADO
+(
+  _ IdEmp _,
+  Nome,
+  Ordenado,
+  Restaurante --> RESTAURANTE.IdRes,
+  Funcao,
+  DataNasc,
+  Cliente --> CLIENTE.IdCli
+)
+
+
+
+table RESTAURANTE
+(
+  _ IdRes _,
+  Nome,
+  Responsavel --> EMPREGADO.IdEmp,
+  Horario,
+  Especialidade --> PRATO.IdPra,
+  MCp ,
+  MAndar ? ,
+  MRua,
+  MLocalidade 
+)
+
+table PERTENCE
+(
+  _IdPra_ --> PRATO.IdPra,
+  _IdRes_ --> RESTAURANTE.IdRes
+)
+

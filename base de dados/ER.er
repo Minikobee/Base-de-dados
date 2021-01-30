@@ -1,0 +1,20 @@
+EMPREGADO (_ IdEmp _, Nome, Funcao, Ordenado, Restaurante, DataNasc, . Idade ., { Cliente })
+
+CLIENTE(_ IdCli _, Nome, Localidade ?, { Telemovel }, CRefeicao ,  Restaurante)
+
+RESTAURANTE(_ IdRes_, Nome, Responsavel, Especialidade , Horario, {Morada(Rua, Andar ?, Cp, Localidade)})
+
+PRATO( _ IdPra_, Nome , Preco, {Ingredientes})
+
+
+EMPREGADO --- 1 --- <TRABALHA_PARA> === N === CLIENTE
+
+EMPREGADO === N === <TRABALHA_NO> === 1 === RESTAURANTE
+
+CLIENTE === N === < VAI_A > === 1 === RESTAURANTE
+
+RESTAURANTE === 1 === < RESPONSAVEL_POR > --- 1 --- EMPREGADO  
+
+PRATO === M === < PERTENCE > === N === RESTAURANTE
+
+CLIENTE === 1 === < PEDE > --- 1 --- PRATO
